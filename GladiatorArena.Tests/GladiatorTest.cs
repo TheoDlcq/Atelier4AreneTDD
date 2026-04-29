@@ -56,5 +56,17 @@ namespace GladiatorArena.Tests
 
             Assert.AreEqual(100, defender.Health);
         }
+
+        [TestMethod]
+        public void Attack_CoupCritique_DoubleLesDegats()
+        {
+            var attacker = new Gladiator("Spartacus", 100, 10, 0);
+            var defender = new Gladiator("Crixus", 100, 0, 5);
+            var fakeDice = new FakeDice { FixedResult = 6 }; // (6+10) * 2 = 32. 32-5 = 27 dégâts.
+
+            attacker.Attack(defender, fakeDice);
+
+            Assert.AreEqual(73, defender.Health); // 100 - 27 = 73
+        }
     }
 }

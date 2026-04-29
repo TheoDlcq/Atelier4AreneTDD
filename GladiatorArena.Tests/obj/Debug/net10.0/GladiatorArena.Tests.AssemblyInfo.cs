@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GladiatorArena.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f54c92c78909479231304271e8013b6c7501f31")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fb79b6ac1fc75422d0be92d968915124282b331")]
 [assembly: System.Reflection.AssemblyProductAttribute("GladiatorArena.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GladiatorArena.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

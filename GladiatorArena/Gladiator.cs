@@ -31,20 +31,17 @@ namespace GladiatorArena
                 throw new InvalidOperationException("Un gladiateur ne peut pas s'attaquer lui-même.");
             }
 
-            // Calcul des dégâts de base (Dé + Force)
             int totalDegats = score + Strength;
             
-            // Multiplicateur de coup critique si le dé fait 6
             if (score == 6) 
             {
                 totalDegats *= 2;
             }
 
-            // Soustraction de l'armure (on s'assure que ça ne devienne pas négatif)
             int degatsFinals = Math.Max(0, totalDegats - opponent.Armor);
             
-            // Application des dégâts
-            opponent.Health -= degatsFinals;
+            // LA CORRECTION EST ICI : On empêche la santé de devenir négative
+            opponent.Health = Math.Max(0, opponent.Health - degatsFinals);
         }
     }
 }

@@ -17,10 +17,15 @@ namespace GladiatorArena
             Armor = armor;
         }
 
-        // On injecte l'interface IDice ici, au lieu de la classe concrète Dice
         public void Attack(Gladiator opponent, IDice dice)
         {
             var score = dice.Roll();
+            
+            if (score < 1 || score > 6)
+            {
+                throw new ArgumentOutOfRangeException(nameof(dice), "Le jet de dé doit être compris entre 1 et 6.");
+            }
+
             throw new NotImplementedException("To be done");
         }
     }

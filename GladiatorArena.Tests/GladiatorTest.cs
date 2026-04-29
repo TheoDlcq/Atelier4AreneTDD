@@ -23,5 +23,14 @@ namespace GladiatorArena.Tests
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => attacker.Attack(defender, fakeDice));
         }
+        
+        [TestMethod]
+        public void Attack_AttaqueSoiMeme_ThrowInvalidOperationException()
+        {
+            var gladiateur = new Gladiator("Spartacus", 100, 10, 5);
+            var fakeDice = new FakeDice { FixedResult = 3 };
+
+            Assert.ThrowsException<InvalidOperationException>(() => gladiateur.Attack(gladiateur, fakeDice));
+        }
     }
 }

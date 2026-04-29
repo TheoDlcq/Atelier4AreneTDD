@@ -23,7 +23,7 @@ namespace GladiatorArena.Tests
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => attacker.Attack(defender, fakeDice));
         }
-        
+
         [TestMethod]
         public void Attack_AttaqueSoiMeme_ThrowInvalidOperationException()
         {
@@ -31,6 +31,30 @@ namespace GladiatorArena.Tests
             var fakeDice = new FakeDice { FixedResult = 3 };
 
             Assert.ThrowsException<InvalidOperationException>(() => gladiateur.Attack(gladiateur, fakeDice));
+        }
+
+        [TestMethod]
+        public void Attack_Standard_CalculeDegatsCorrects()
+        {
+            var attacker = new Gladiator("Spartacus", 100, 10, 0);
+            var defender = new Gladiator("Crixus", 100, 0, 5); // Armure de 5
+            var fakeDice = new FakeDice { FixedResult = 3 }; // (3+10) - 5 = 8 dégâts
+
+            attacker.Attack(defender, fakeDice);
+
+            Assert.AreEqual(92, defender.Health);
+        }
+
+        [TestMethod]
+        public void Attack_ArmureTropForte_AucunDegat()
+        {
+            var attacker = new Gladiator("Spartacus", 100, 10, 0);
+            var defender = new Gladiator("Crixus", 100, 0, 20); // Armure de 20
+            var fakeDice = new FakeDice { FixedResult = 1 }; // (1+10) - 20 = -9 -> 0 dégâts
+
+            attacker.Attack(defender, fakeDice);
+
+            Assert.AreEqual(100, defender.Health);
         }
     }
 }

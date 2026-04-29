@@ -1074,6 +1074,16 @@
             "related": ".xml"
           }
         }
+      },
+      "GladiatorArena/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/GladiatorArena.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GladiatorArena.dll": {}
+        }
       }
     }
   },
@@ -2267,10 +2277,16 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "GladiatorArena/1.0.0": {
+      "type": "project",
+      "path": "../GladiatorArena/GladiatorArena.csproj",
+      "msbuildProject": "../GladiatorArena/GladiatorArena.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "GladiatorArena >= 1.0.0",
       "MSTest >= 4.0.2"
     ]
   },
@@ -2298,7 +2314,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\theo2\\OneDrive\\Documents\\Test unitaires\\Atelier4ArenneTDD\\GladiatorArena\\GladiatorArena.csproj": {
+              "projectPath": "C:\\Users\\theo2\\OneDrive\\Documents\\Test unitaires\\Atelier4ArenneTDD\\GladiatorArena\\GladiatorArena.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

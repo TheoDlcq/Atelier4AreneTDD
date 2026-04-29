@@ -68,5 +68,20 @@ namespace GladiatorArena.Tests
 
             Assert.AreEqual(73, defender.Health); // 100 - 27 = 73
         }
+        
+        [TestMethod]
+        public void Attack_MortDeLAdversaire_SanteEgaleZero()
+        {
+            // Arrange : Un attaquant très fort, un défenseur très faible (10 HP)
+            var attacker = new Gladiator("Spartacus", 100, 50, 0);
+            var defender = new Gladiator("Crixus", 10, 0, 0); 
+            var fakeDice = new FakeDice { FixedResult = 1 }; // Dégâts totaux : 1 + 50 = 51
+
+            // Act
+            attacker.Attack(defender, fakeDice);
+
+            // Assert : Les PV de Crixus ne doivent pas être à -41, mais bloqués à 0
+            Assert.AreEqual(0, defender.Health);
+        }
     }
 }
